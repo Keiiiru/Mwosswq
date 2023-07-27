@@ -1,29 +1,30 @@
 import configparser
 
-
 from dataclasses import dataclass
 
 
-@dataclass 
+@dataclass
 class TgBot:
-    token : str 
-    admin : int 
+    token: str
+    admin: int
 
-@dataclass 
+
+@dataclass
 class Config:
-    tg_bot : TgBot
+    tg_bot: TgBot
 
-def load_config(path: str): 
+
+def load_config(path: str):
     config = configparser.ConfigParser()
     config.read(path)
 
     tg_bot = config["tg_bot"]
-    
+
     return Config(
-        tg_bot = TgBot (
-        token = tg_bot['TOKEN'],
+        tg_bot=TgBot(
+            token=tg_bot["TOKEN"],
         )
     )
 
-config = load_config("config/bot.ini")
 
+config = load_config("config/bot.ini")
