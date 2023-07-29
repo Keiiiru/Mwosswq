@@ -1,11 +1,9 @@
 from aiogram import types
 
 menu = types.ReplyKeyboardMarkup(resize_keyboard=True).add(
-    types.KeyboardButton(
-        "Datebook",
-        "Command help",
-        "Contacts",
-    ),
+    types.KeyboardButton("Datebook"),
+    types.KeyboardButton("Command help"),
+    types.KeyboardButton("Contacts"),
 )
 
 
