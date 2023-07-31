@@ -18,12 +18,12 @@ async def cmd_start(message: types.Message):
     await message.answer("Hey?\n How can I help you?", reply_markup=keyboards.menu)
 
 
-@dp.message_handler(commands=["Contacts"])
+@dp.message_handler(text="Contacts")
 async def buttons(m: types.Message):
     await m.answer("Contacts:", reply_markup=keyboards.contacts)
 
 
-@dp.message_handler(commands=["Command help"])
+@dp.message_handler(text="Command help")
 async def cmd_list(m: types.Message):
     await m.answer(
         """
