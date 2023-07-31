@@ -4,6 +4,7 @@ import keyboards
 from aiogram.dispatcher import Dispatcher
 from aiogram import Bot, types, executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.dispatcher.filters import Text
 from cfg.config_reader import config
 from dbreg.dbedit import register_edit_handler
 from dbreg.datebook.db import _init_db
@@ -18,12 +19,12 @@ async def cmd_start(message: types.Message):
     await message.answer("Hey?\n How can I help you?", reply_markup=keyboards.menu)
 
 
-@dp.message_handler(text="Contacts")
+@dp.message_handler(Text(["Contacts"]))
 async def buttons(m: types.Message):
     await m.answer("Contacts:", reply_markup=keyboards.contacts)
 
 
-@dp.message_handler(text="Command help")
+@dp.message_handler(Text(["Command help"]))
 async def cmd_list(m: types.Message):
     await m.answer(
         """
