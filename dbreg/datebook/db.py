@@ -1,7 +1,6 @@
 import os
 import sqlite3
 
-
 db = sqlite3.connect(os.path.join("datebook.db"))
 
 
@@ -27,7 +26,7 @@ def _init_db():
 def add_mark(Day_of_week: str, Activity_for_the_day: str, user_id: int):
     cursor = _get_cursor()
     stmt = (
-        "insert into date(Day_of_week, Activity_for_the_day, user_id) values (?, ? ,?)"
+        "insert into date(day_of_week, activity_for_the_day, user_id) values (?, ? ,?)"
     )
     cursor.execute(stmt, (Day_of_week, Activity_for_the_day, user_id))
     db.commit()
