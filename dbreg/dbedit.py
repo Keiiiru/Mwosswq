@@ -35,9 +35,15 @@ async def get_activity_handler(m: types.Message, state: FSMContext):
 
 
 async def add_mark_handler(m: types.Message, state: FSMContext):
+<<<<<<< HEAD
     await state.update_data(activity_for_the_day=m.text)
     data = await state.get_data()
     add_mark(data["day_of_week"], data["activity_for_the_day"], m.from_user.id)
+=======
+    await state.update_data(Activity_for_the_day=m.text)
+    data = await state.get_data()
+    add_mark(data["Day_of_week"], data["Activity_for_the_day"], m.from_user.id)
+>>>>>>> 60c7b1199ae79e6c72f22cdce19fa8d8f77d16ee
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True).add(
         *("Return to create mark", "Browse marks", "Back to menu")
     )
@@ -58,6 +64,11 @@ def register_edit_handler(dp: Dispatcher):
         Text(equals=["Create mark", "Return to create mark"]),
         state="*",
     )
+<<<<<<< HEAD
     dp.register_message_handler(get_activity_handler, state=AddMark.day_of_week)
     dp.register_message_handler(add_mark_handler, state=AddMark.activity_for_the_day)
+=======
+    dp.register_message_handler(get_activity_handler, state=AddMark.Day_of_week)
+    dp.register_message_handler(add_mark_handler, state=AddMark.Activity_for_the_day)
+>>>>>>> 60c7b1199ae79e6c72f22cdce19fa8d8f77d16ee
     dp.register_message_handler(get_mark_handler, Text(equals=["Browse marks"]))
