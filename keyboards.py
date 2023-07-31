@@ -7,37 +7,18 @@ menu = types.ReplyKeyboardMarkup(resize_keyboard=True).add(
 )
 
 
-planner_menu = types.ReplyKeyboardMarkup().add(
-    types.KeyboardButton("Create mark", "Browse marks", "Contacts"),
+planner_menu = types.ReplyKeyboardMarkup(resize_keyboard=True).add(
+    types.KeyboardButton("Create mark"),
+    types.KeyboardButton("browse marks"),
+    types.KeyboardButton("Back to menu"),
 )
 
 
-async def menu_button_h(m: types.Message):
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True).add(
-        *("Datebook", "Command help", "Contacts")
-    )
-    await m.answer("How can i help you?", reply_markup=keyboard)
+cmd_list = types.ReplyKeyboardMarkup(resize_keyboard=True).add(
+    types.KeyboardButton("Back to menu"),
+)
 
 
-async def planner_menu_h(m: types.Message):
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True).add(
-        *("Create mark", "Browse marks", "Back to menu")
-    )
-    await m.answer(
-        "Will we create a new datebook or will we look at the old one?",
-        reply_markup=keyboard,
-    )
-
-
-async def cmd_list(m: types.Message):
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True).add("Back to menu")
-    await m.answer(
-        """
-            Available commands: \n
-                /help \n
-                /contacts  \n
-                /datebook \n
-                /menu
-        """,
-        reply_markup=keyboard,
-    )
+contacts = types.InlineKeyboardMarkup(row_width=1).add(
+    types.InlineKeyboardButton(text="Developer", url="https://t.me/Mwossw")
+)

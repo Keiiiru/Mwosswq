@@ -18,12 +18,20 @@ async def cmd_start(message: types.Message):
     await message.answer("Hey?\n How can I help you?", reply_markup=keyboards.menu)
 
 
-@dp.message_handler(commands=["contacts"])
+@dp.message_handler(commands=["Contacts"])
 async def buttons(m: types.Message):
-    keyboard = types.InlineKeyboardMarkup(row_width=1)
-    buttons = [types.InlineKeyboardButton(text="", url="")]
-    keyboard.add(*buttons)
-    await m.answer("Contacts:", reply_markup=keyboard)
+    await m.answer("Contacts:", reply_markup=keyboards.contacts)
+
+
+@dp.message_handler(commands=["Command help"])
+async def cmd_list(m: types.Message):
+    await m.answer(
+        """
+        available commands: \n
+
+        """,
+        reply_markup=keyboards.cmd_list,
+    )
 
 
 async def on_startup(_: Dispatcher):
