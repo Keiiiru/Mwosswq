@@ -9,7 +9,7 @@ def _get_cursor() -> sqlite3.Cursor:
     return cursor
 
 
-def _init_db():
+def init_db():
     cursor = _get_cursor()
     stmt = """
             create table if not exists date(

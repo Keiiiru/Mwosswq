@@ -5,9 +5,7 @@ from aiogram import types
 from aiogram.dispatcher import Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters import Text
-from start import bot
-
-dp = Dispatcher(bot, strage=MemoryStorage())
+from loader import dp
 
 
 @dp.message_handler(commands=["start", "начать"])
