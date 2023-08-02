@@ -1,10 +1,7 @@
-import keyboards
-
-
 from aiogram import types
-from aiogram.dispatcher import Dispatcher
-from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters import Text
+
+import keyboards
 from loader import dp
 
 
